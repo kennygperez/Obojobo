@@ -402,3 +402,9 @@
 .is-previewing .viewer--components--nav {
 	bottom: 3em;
 }
+
+.is-red-alert {
+	$color-bg: red;
+
+	background-color: $color-bg;
+}

@@ -199,10 +199,13 @@ export default class Nav extends React.Component {
 			isOrNot(navState.locked, 'locked') +
 			isOrNot(navState.open, 'open') +
 			isOrNot(!navState.disabled, 'enabled')
+		const isRedAlertEnabled = NavUtil.isRedAlertEnabled(navState)
+			? 'is-red-alert'
+			: 'is-not-red-alert'
 
 		return (
 			<nav
-				className={className}
+				className={className + ' ' + isRedAlertEnabled}
 				tabIndex="-1"
 				ref={this.selfRef}
 				role="navigation"
@@ -217,6 +220,9 @@ export default class Nav extends React.Component {
 				>
 					Skip Navigation
 				</Button>
+				<button type="button" onClick={() => NavUtil.setRedAlert(!navState)}>
+					Red Alert
+				</button>
 				<button className="toggle-button" onClick={NavUtil.toggle}>
 					Toggle Navigation Menu
 				</button>
