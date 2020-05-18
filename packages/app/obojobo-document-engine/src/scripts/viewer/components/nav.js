@@ -220,7 +220,10 @@ export default class Nav extends React.Component {
 				>
 					Skip Navigation
 				</Button>
-				<button type="button" onClick={() => NavUtil.setRedAlert(!navState)}>
+				<button
+					type="button"
+					onClick={() => NavUtil.setRedAlert(!NavUtil.isRedAlertEnabled(navState))}
+				>
 					Red Alert
 				</button>
 				<button className="toggle-button" onClick={NavUtil.toggle}>

@@ -36,16 +36,22 @@ class NavStore extends Store {
 		Dispatcher.on(
 			{
 				'nav:redAlert': payload => {
+					const oldState = this.state.redAlert
+
 					APIUtil.postEvent({
 						draftId: this.state.draftId,
 						action: 'nav:redAlert',
 						eventVersion: '1.0.0',
 						visitId: this.state.visitId,
 						payload: {
-							from: this.state.redAlert,
+							from: oldState,
 							to: payload.redAlert
 						}
 					})
+
+					this.state.redAlert = payload.redAlert
+
+					this.triggerChange()
 				},
 				'nav:setContext': payload => {
 					this.state.context = payload.value.context

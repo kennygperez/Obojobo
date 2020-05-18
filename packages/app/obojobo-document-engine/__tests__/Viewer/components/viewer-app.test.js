@@ -1678,4 +1678,22 @@ describe('ViewerApp', () => {
 			done()
 		})
 	})
+
+	test('ViewerApp class is-red-alert if button is clicked', done => {
+		// expect.assertions()
+		mocksForMount()
+
+		NavUtil.setRedAlert.mockReturnValueOnce(true)
+		const component = mount(<ViewerApp />)
+
+		setTimeout(() => {
+			component.update()
+
+			expect(component.find('.is-red-alert').length).toBe(0)
+			expect(component.find('.is-not-red-alert').length).toBe(0)
+
+			component.unmount()
+			done()
+		})
+	})
 })
