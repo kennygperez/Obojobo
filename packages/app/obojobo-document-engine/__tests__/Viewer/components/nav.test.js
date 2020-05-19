@@ -564,4 +564,34 @@ describe('Nav', () => {
 		component.instance().closeNavOnMobile({ target: true })
 		expect(NavUtil.close).toHaveBeenCalled()
 	})
+
+	test('toggle red alert false', () => {
+		const props = {
+			navState: {
+				resAlert: false
+			}
+		}
+
+		NavUtil.isRedAlertEnabled.mockReturnValueOnce(false)
+		const el = shallow(<Nav {...props} />)
+		expect(NavUtil.setRedAlert).not.toHaveBeenCalled()
+		NavUtil.setRedAlert.mockReturnValueOnce(true)
+		el.find('#red-alert-button').simulate('click')
+		expect(NavUtil.setRedAlert).toHaveBeenCalledTimes(1)
+	})
+
+	test('toggle red alert true', () => {
+		const props = {
+			navState: {
+				resAlert: true
+			}
+		}
+
+		NavUtil.isRedAlertEnabled.mockReturnValueOnce(true)
+		const el = shallow(<Nav {...props} />)
+		expect(NavUtil.setRedAlert).not.toHaveBeenCalled()
+		NavUtil.setRedAlert.mockReturnValueOnce(false)
+		el.find('#red-alert-button').simulate('click')
+		expect(NavUtil.setRedAlert).toHaveBeenCalledTimes(1)
+	})
 })

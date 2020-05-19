@@ -20,6 +20,7 @@ exports[`Nav renders all list item types (locked=false) 1`] = `
     </button>
   </div>
   <button
+    id="red-alert-button"
     onClick={[Function]}
     type="button"
   >
@@ -152,6 +153,7 @@ exports[`Nav renders all list item types (locked=true) 1`] = `
     </button>
   </div>
   <button
+    id="red-alert-button"
     onClick={[Function]}
     type="button"
   >
@@ -304,6 +306,7 @@ exports[`Nav renders closed 1`] = `
     </button>
   </div>
   <button
+    id="red-alert-button"
     onClick={[Function]}
     type="button"
   >
@@ -348,6 +351,7 @@ exports[`Nav renders opened 1`] = `
     </button>
   </div>
   <button
+    id="red-alert-button"
     onClick={[Function]}
     type="button"
   >
@@ -392,6 +396,7 @@ exports[`Nav renders unlocked 1`] = `
     </button>
   </div>
   <button
+    id="red-alert-button"
     onClick={[Function]}
     type="button"
   >

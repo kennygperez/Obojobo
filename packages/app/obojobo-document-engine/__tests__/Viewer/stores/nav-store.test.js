@@ -719,4 +719,13 @@ describe('NavStore', () => {
 		expect(NavStore.generateNav(model)).toMatchSnapshot()
 		expect(NavStore.getState()).toMatchSnapshot()
 	})
+
+	test('nav:redAlert event set the red alert state', () => {
+		jest.spyOn(NavStore, 'triggerChange')
+		NavStore.triggerChange.mockReturnValueOnce('')
+
+		eventCallbacks['nav:redAlert']({ redAlert: true })
+
+		expect(NavStore.triggerChange).toHaveBeenCalled()
+	})
 })
